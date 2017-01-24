@@ -241,7 +241,6 @@ function run() {
   var urlsVal = checkUrlsValidity();
   if (!suspIP || !hostFreq) {
     // Suspicious IP, let's mark it grey
-    // TODO: CHANGE THE VIEW FFS!
     changeView();
   }
   if (!urlsVal) {
