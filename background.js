@@ -2,7 +2,7 @@ chrome.webRequest.onBeforeRequest.addListener(function(d){
   // neat way to extract domain name from url
   var domain = new URL(d.url).hostname;
   var url = d.url;
-  var hash = "asdfhaskdfasdf/=";
+  var hash = "asdfhaskdfasdf/=";  // TODO: Think of a good way to get hash from page to send it to server so the server can compare what it fetches vs what client fetch
   var wbl = {};
   var toCheck = "https://localhost:8080/wbl?hostname="+domain+"&url="+url+"&hash="+hash;
   console.log(toCheck);
@@ -21,7 +21,7 @@ chrome.webRequest.onBeforeRequest.addListener(function(d){
   } else {
     if (wbl.reason == 1) {
       console.log("BLACKLISTED!");
-      return {redirectUrl: "http://localhost:8080/phishingPage?host="+d.url} // Currently cancelling the request, in future should be redirected to a page with explanation
+      return {redirectUrl: "https://localhost:8080/phishingPage?host="+d.url}
     } else if (wbl.reason == 2) {
       console.log("STILL CHECKING");
       // Here I need to pass control to content.js which will load the page but disable all the sensitives
