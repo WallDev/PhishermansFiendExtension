@@ -193,7 +193,7 @@ function checkSuspiciousIP() {
 
 function checkHostsFrequency() {
   // We check how many times the same host linked
-  // If there is too many links that leading outbout we mark the website grey
+  // If there is too many links that leading outbound we mark the website grey
   var hostsFrequency = [];
 
   var allLinks = document.getElementsByTagName("a");
